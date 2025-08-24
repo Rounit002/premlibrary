@@ -419,7 +419,7 @@ const AddStudentForm: React.FC = () => {
   const totalAmountPaid = cashAmount + onlineAmount;
   const effectiveTotalFee = (parseFloat(formData.totalFee) || 0) - (parseFloat(formData.discount) || 0);
   const dueAmount = effectiveTotalFee - totalAmountPaid;
-  const isFeeReadOnly = formData.shiftIds.length === 1;
+  
 
   return (
     <div className="max-w-2xl mx-auto p-6">
@@ -607,7 +607,7 @@ const AddStudentForm: React.FC = () => {
         </div>
         <div>
           <label htmlFor="totalFee" className="block text-sm font-medium text-gray-700 mb-1">
-            {isFeeReadOnly ? 'Total Fee (Auto-calculated) *' : 'Total Fee *'}
+            {'Total Fee *'}
           </label>
           <input
             type="number"
@@ -615,10 +615,7 @@ const AddStudentForm: React.FC = () => {
             name="totalFee"
             value={formData.totalFee}
             onChange={handleChange}
-            readOnly={isFeeReadOnly}
-            className={`w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300 ${
-                isFeeReadOnly ? 'bg-gray-100' : ''
-            }`}
+            className={`w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300`}
           />
         </div>
         <div>
